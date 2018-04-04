@@ -1,0 +1,21 @@
+<div  class="col-sm-8 col-lg-4 col-md-6 contactWrapper">
+  <h3>Contact List</h3>
+  <form class="contactContainer">
+    <div class="form-group">
+      <label for="email1Addr">Email address</label>
+      <input type="email" class="form-control" id="email1Addr" aria-describedby="emailCont" placeholder="Enter email">
+      <small id="emailCont" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Your Phone Number</label>
+      <input type="text" class="form-control" id="phoneNumber" placeholder="your phone number" aria-describedby="numberTip">
+      <small id="numberTip" class="form-text text-muted" >please enter the available number</small>
+    </div>
+    <div class="form-group">
+      <label for="questionTxt"></label>
+      <textarea id="questionTxt" class="form-control" rows="3" placeholder="what's your question"></textarea>
+    </div>
+    <button class="btn btn-block btn-primary">SUBMIT</button>
+  </form>
+  <small class="text-primary"><a class = "contactPointer" (click)="goBack()">back to home</a></small>
+</div>

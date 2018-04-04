@@ -1,0 +1,16 @@
+.contactWrapper{
+    margin: 0 auto;
+    margin-top:50px;
+}
+
+.contactContainer {
+    margin-top: 20px;
+}
+
+.contactPointer{
+    cursor: pointer;
+}
+
+a:hover { 
+background-color:yellow;
+}

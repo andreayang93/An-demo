@@ -8,10 +8,12 @@ import { Product } from './Product';
 })
 export class ProductComponent implements OnInit {
   public products: Array<Product>;
+  public imgUrl: string;
   constructor() {
   }
 
   ngOnInit() {
+    this.imgUrl = 'http://placehold.it/250x150';
     this.products = [
       new Product(1, '第一个商品', 899, 3.5, '这是一个电脑', ['电子产品', '家电']),
       new Product(2, '第二个商品', 799, 2.5, '这是一个衣服', ['电子产品', '家电']),

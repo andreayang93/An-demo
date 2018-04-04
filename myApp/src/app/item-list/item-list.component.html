@@ -1,0 +1,55 @@
+<div class="container itemList">
+  <div class="row">
+    <div class="col-md-8">
+      <h4>Product List</h4>
+        <table class="table" *ngFor="let item of Items">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Product ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Inventory</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Product Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.inventory}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.category}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col-md-4">
+      <h4>Add new items here</h4>
+        <form>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Product Name</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Product Inventory</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Product Price</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Product Category</label>
+                <select type="text" class="form-control" id="formGroupExampleInput2">
+                  <option value="china">china</option>
+                  <option value="painting">painting</option>
+                  <option value="crafts">crafts</option>
+                  <option value="gear">gear</option>
+                </select>
+          </div>
+          <button class="btn btn-primary btn-block">Add to List</button>
+        </form>
+    </div>
+  </div>
+</div>
+
