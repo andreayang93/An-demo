@@ -14,11 +14,14 @@ import { OurmapComponent } from './ourmap/ourmap.component';
 import { AboutComponent } from './about/about.component';
 import {AppRoutingModule} from './app.routing.module';
 import { ItemListComponent } from './item-list/item-list.component';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import {DataService} from './data.service';
-
+import { FormsModule } from '@angular/forms';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { FilterPipe } from './filter.pipe';
+import { TestListComponent } from './test-list/test-list.component';
+import { MapdetailComponent } from './mapdetail/mapdetail.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +37,15 @@ import {DataService} from './data.service';
     ContactComponent,
     OurmapComponent,
     AboutComponent,
-    ItemListComponent
+    ItemListComponent,
+    ProductDetailComponent,
+    FilterPipe,
+    TestListComponent,
+    MapdetailComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     HttpModule

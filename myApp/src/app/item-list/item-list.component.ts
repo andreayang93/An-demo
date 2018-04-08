@@ -9,22 +9,22 @@ import { DataService } from '../data.service';
   providers: [DataService]
 })
 export class ItemListComponent implements OnInit {
-  public item  = new Items(
-    6, 'cd', 9999, 666, 'cdsc'
-  );
   public id: number;
   public name: string;
   public inventory: number;
   public price: number;
   public category: string;
+  public items: any[] = [];
+  public item = new Items();
+  public term: string;
   constructor(
     public dataservice: DataService,
   ) { }
 
   public showData() {
     this.dataservice.getData().subscribe(
-      (data: any) => {
-        this.item = data;
+      (data: any[]) => {
+        this.items = data;
       }
     );
   }
@@ -32,4 +32,15 @@ export class ItemListComponent implements OnInit {
     return this.showData();
   }
 
+  public addData() {
+    this.dataservice.saveData(this.item).subscribe(
+      (data) => this.showData()
+    );
+  }
+
+  public clearData() {
+    this.dataservice.deleteData().subscribe(
+      (data) => this.showData()
+    );
+  }
 }
