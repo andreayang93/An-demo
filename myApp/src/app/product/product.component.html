@@ -4,7 +4,7 @@
       <div class="img-thumbnail">
         <img [src]="imgUrl" alt="商品图片">
         <h4 class="float-right">￥{{product.price}}</h4>
-        <h4><a>{{product.title}}</a></h4>
+        <h4><a [routerLink]="['product',product.title]">{{product.title}}</a></h4>
         <p>{{product.desc}}</p>
         <div>
           <app-stars [rating]="product.rating"></app-stars>

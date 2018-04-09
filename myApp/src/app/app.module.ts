@@ -22,6 +22,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { FilterPipe } from './filter.pipe';
 import { TestListComponent } from './test-list/test-list.component';
 import { MapdetailComponent } from './mapdetail/mapdetail.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -41,11 +43,13 @@ import { MapdetailComponent } from './mapdetail/mapdetail.component';
     ProductDetailComponent,
     FilterPipe,
     TestListComponent,
-    MapdetailComponent
+    MapdetailComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     HttpModule

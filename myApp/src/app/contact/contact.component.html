@@ -1,24 +1,67 @@
 <div  class="col-sm-8 col-lg-4 col-md-6 contactWrapper">
   <h3>Contact List</h3>
-  <form class="contactContainer" >
+  <form class="contactContainer" [formGroup]="myForm">
     <div class="form-group">
-      <label for="email1Addr">Email address</label>
-      <input type="email" class="form-control" id="email1Addr" aria-describedby="emailCont" name="email" 
-      placeholder="Enter email" name="email" >
-      <small id="emailCont" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <label for="email">Email address</label>
+      <input class="form-control" id="email" name="email" 
+      placeholder="Enter email" name="email" formControlName="email" required >
     </div>
+    <!-- *ngIf="email.invalid && (email.dirty||email.touched)" class="alert alert-danger" -->
+      <p class="alert-danger">{{getValidatorsMes(myForm.get('email'))}}</p>
     <div class="form-group">
       <label for="phoneNumber">Your Phone Number</label>
-      <input type="text" class="form-control" id="phoneNumber" placeholder="your phone number" 
-      aria-describedby="numberTip" name="number" >
-      <small id="numberTip" class="form-text text-muted" >please enter the available number</small>
+      <input class="form-control" id="phoneNumber" placeholder="your phone number" 
+      name="number" formControlName="phoneNumber" required>
     </div>
+      <p class="alert-danger">{{getValidatorsMes(myForm.get('phoneNumber'))}}</p>
     <div class="form-group">
       <label for="questionTxt"></label>
       <textarea id="questionTxt" class="form-control" rows="3" name = "questionTxt" 
-      placeholder="what's your question" ></textarea>
+      placeholder="what's your question" formControlName="questionTxt" required></textarea>
     </div>
-    <button class="btn btn-block btn-primary">SUBMIT</button>
+      <p class="alert-danger">{{getValidatorsMes(myForm.get('questionTxt'))}}</p>
+    <button class="btn btn-block btn-primary" [class.disabled]="myForm.invalid" (click)="getFormValue()">SUBMIT</button>
   </form>
   <small class="text-primary"><a class = "contactPointer" (click)="goBack()">back to home</a></small>
+  <div>Form value: {{ myForm.value | json }}</div>
 </div>
+
+<!-- <h2>Hero Detail</h2>
+<h3><i>FormControl in a FormGroup</i></h3>
+<form [formGroup]="heroForm">
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">street:
+      <input class="form-control" formControlName="street">
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">city:
+      <input class="form-control" formControlName="city">
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">state:
+      <select class="form-control" formControlName="state" >
+        <option *ngFor="let state of states" [value]="state">{{state}}</option>
+      </select>
+    </label>
+  </div>
+  <div class="form-group">
+      <label class="center-block">zip CODE:
+        <input class="form-control" formControlName="zip">
+      </label>
+    </div>
+    <div class="checkbox">
+        <label class="center-block">
+          <input type="checkbox" formControlName="sidekick">I have a sidekick.
+        </label>
+      </div>
+</form>
+<p>Form value: {{ heroForm.value | json }}</p>
+<p>Form status: {{ heroForm.status | json }}</p>
+<p>Name value: {{ heroForm.get('name').value }}</p> -->

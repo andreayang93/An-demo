@@ -8,13 +8,20 @@ import {OurmapComponent} from './ourmap/ourmap.component';
 import {ItemListComponent} from './item-list/item-list.component';
 import {TestListComponent} from './test-list/test-list.component';
 import {MapdetailComponent} from './mapdetail/mapdetail.component';
-
+import {ProductDetailComponent} from './product-detail/product-detail.component';
+import {UnsavedGuard} from './unsaved.guard';
+import {ChatComponent} from './chat/chat.component';
 const routes: Routes = [{
     path: 'home',
     component: HomeComponent,
 }, {
+    path: 'home/chat',
+    component: ChatComponent,
+    outlet: 'aux'
+}, {
     path : 'home/contact',
     component : ContactComponent,
+    canDeactivate: [UnsavedGuard]
 }, {
     path : 'home/about',
     component : AboutComponent ,
@@ -32,6 +39,9 @@ const routes: Routes = [{
     path: 'home/testlist',
     component: TestListComponent,
 }, {
+    path: 'home/product/:prodTitle',
+    component: ProductDetailComponent,
+}, {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -41,7 +51,7 @@ const routes: Routes = [{
 }];
 
 @NgModule({
-    providers: [],
+    providers: [UnsavedGuard],
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
