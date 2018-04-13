@@ -1,0 +1,56 @@
+<div class="container" >
+  <div class="row">
+    <div class="col-sm-8 col-lg-4 col-md-6 loginWrapper">
+      <form [formGroup]='loginForm' (submit)="onSubmit()">
+          <div class="form-group">
+              <label for="username">Name:</label>
+              <input class="form-control" id="username" placeholder="username" formControlName="name" >
+          </div>
+           <!-- 状态字段来验证用户 form.get('name').状态字段 -->
+          <div [hidden]="loginForm.get('name').untouched || loginForm.get('name').valid">
+            <div [hidden]="!loginForm.hasError('required','name')">
+                Name is REQUIRED!!
+            </div>
+            <!-- 响应式表单验证器用form实例.hasError('key','formcontro的名字') key的值tslint会提示需要参数为string[]可忽略 -->
+            <div [hidden]="!loginForm.hasError('minlength','name')">
+               It must be more than 5 characters!
+            </div>
+        </div>
+          <div class="form-group">
+              <label for="phoneNumber">Mobile phoneNumber:</label>
+              <input class="form-control" id="phoneNumber" placeholder="number" formControlName="phoneNumber" >
+          </div>
+          <div [hidden]="loginForm.get('phoneNumber').untouched || loginForm.get('phoneNumber').valid">
+            <div [hidden]="!loginForm.hasError('required','phoneNumber')">
+                Name is REQUIRED!!
+            </div>
+            <div [hidden]="!loginForm.hasError('teleNum','phoneNumber')">
+                It must be more than 5 characters!
+            </div>
+        </div>
+          <div formGroupName='passGroup'>
+              <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="password" class="form-control" id="password" placeholder="password"  formControlName="password">
+              </div>
+              <div [hidden]="loginForm.hasError('required',['passGroup','password'])">
+                    mima required;
+              </div>
+              <div class="form-group">
+                  <label for="confpass">Confirm Password:</label>
+                  <input type="password" class="form-control" id="confpass" placeholder="confirm password"  formControlName="confpass">
+              </div>
+              <div [hidden]="loginForm.hasError('required',['passGroup','confpass'])">
+                  querenmima required;
+              </div>
+          </div>
+          <div [hidden]="loginForm.get('passGroup').untouched || loginForm.get('passGroup').valid">
+            <div [hidden]="loginForm.hasError('equal','passGroup')">
+                密码与确认密码不相等
+            </div>
+          </div>
+            <button  type="button" class="btn btn-primary btn-block" value="SUBMIT">SUBMIT</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,18 @@
-<p>这是{{productTitle}}</p>
+<div class="thumbnail">
+    <img src="http://placehold.it/820x230">
+    <h4 class="pull-right">{{product.price}}元</h4>
+    <h4>{{product.title}}</h4>
+    <p>{{product.desc}}</p>
+<div>
+    <div class="pull-right">{{comments.length}}</div>
+    <hr>
+<div class="well">
+    <div class="row" *ngFor="let comment of comments">
+        <div class="col-md-12">
+            <app-stars [rating]="comment.rating"></app-stars>
+            <span class="pull-right">{{comment.content}}</span>
+            <span>{{comment.timeStamp}}</span>
+        </div>
+    </div>
+</div>
+

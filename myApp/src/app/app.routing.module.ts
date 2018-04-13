@@ -11,22 +11,23 @@ import {MapdetailComponent} from './mapdetail/mapdetail.component';
 import {ProductDetailComponent} from './product-detail/product-detail.component';
 import {UnsavedGuard} from './unsaved.guard';
 import {ChatComponent} from './chat/chat.component';
+import {ItemDetailsComponent} from './item-details/item-details.component';
+import {LoginComponent} from './login/login.component';
+import {TemplateComponent} from './template/template.component';
+import {TestHttpComponent} from './test-http/test-http.component';
+import {WebsocketComponent} from './websocket/websocket.component';
 const routes: Routes = [{
     path: 'home',
     component: HomeComponent,
 }, {
-    path: 'home/chat',
-    component: ChatComponent,
-    outlet: 'aux'
-}, {
-    path : 'home/contact',
+    path: 'home/contact',
     component : ContactComponent,
     canDeactivate: [UnsavedGuard]
 }, {
-    path : 'home/about',
-    component : AboutComponent ,
+    path: 'home/about',
+    component: AboutComponent ,
 }, {
-    path : 'home/ourmap',
+    path: 'home/ourmap' ,
     component : OurmapComponent ,
     children: [{
         path: 'detail',
@@ -36,11 +37,27 @@ const routes: Routes = [{
     path: 'home/itemlist',
     component: ItemListComponent,
 }, {
-    path: 'home/testlist',
-    component: TestListComponent,
+    path: 'home/itemlist/:itemID',
+component: ItemDetailsComponent,
 }, {
-    path: 'home/product/:prodTitle',
+    path: 'home/product/:prodid',
     component: ProductDetailComponent,
+}, {
+    path: 'home/login',
+    component: LoginComponent,
+}, {
+    path: 'home/template',
+    component: TemplateComponent
+}, {
+    path: 'home/testhttp',
+    component: TestHttpComponent
+}, {
+    path: 'home/websocket',
+    component: WebsocketComponent
+}, {
+    path: 'chat',
+    component: ChatComponent,
+    outlet: 'aux'
 }, {
     path: '',
     redirectTo: 'home',

@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="templateForm col-md-6">
+                <form #myForm='ngForm' (ngSubmit)='onSubmit(myForm.value)' >
+                        <div class="form-group">
+                            <label for="nameInfo">username:</label>
+                            <input type="text" id="nameInfo" class="form-control" ngModel   #name="ngModel" name="username" required minlength="5">
+                        </div>
+                        <!-- 利用input的本地变量name来获取他们的状态字段 -->
+                        <div [hidden]='name.valid||name.untouched'>
+                            <p *ngIf="myForm.form.hasError('required','username')">
+                                name is required.
+                            </p>
+                            <p *ngIf="myForm.form.hasError('minlength','username')">
+                                It must be more than 5 characters.
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNum">phone number:</label>
+                            <input type="number" id="phoneNum" class="form-control" appVali ngModel #phoneNumber="ngModel" name="mobile" required>
+                        </div>
+                         <!-- 利用input的本地变量phoneNumber来获取他们的状态字段 -->
+                        <div [hidden]="phoneNumber.valid||phoneNumber.untouched">
+                            <p *ngIf="myForm.form.hasError('required','mobile')">
+                                phonenumber is required.
+                            </p>
+                                    <!-- 自定义的验证器 是获取返回那个对象的key的值 -->
+                            <p *ngIf ="myForm.form.hasError('teleNum','mobile')">
+                                it is mot the standard number;
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="fileUpload">Upload your pic</label>
+                            <input type="file" id="fileUpload" class="form-control-file form-control">
+                        </div>
+                        <div class="form-group">
+                          <button>SUBMIT</button>
+                    </div>
+                </form>  
+        </div>  
+    </div>
+</div>
+
+

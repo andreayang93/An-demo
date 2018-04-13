@@ -1,13 +1,11 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
 <div class="main-wrap">
   <div class="container">
     <div class="row">
-      <div class="col-lg-3">
+      <div class="col-lg-3 col-md-9">
         <app-search></app-search>
         <router-outlet name="aux"></router-outlet>
       </div>
-      <div class="col-lg-9">
+      <div class="col-lg-9 col-md-9">
         <div class="row">
           <app-carousel></app-carousel>
         </div>
@@ -19,3 +17,5 @@
   </div>
 </div>
 <app-footer></app-footer>
+<p class="float-right"><a [routerLink]="[{outlets:{aux:'chat'}}]">Live chat</a></p>
+<p class="float-right"><a>hide the chat</a></p>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-ourmap',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ourmap.component.css']
 })
 export class OurmapComponent implements OnInit {
-
+  public stock;
+  public amount;
   constructor() { }
 
   ngOnInit() {

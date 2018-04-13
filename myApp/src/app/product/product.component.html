@@ -1,10 +1,14 @@
+  <div class="form-group" >
+    <label for="search">Search:</label>
+    <input type="text" class="form-control" id="Search" placeholder="Search" [formControl]="searchInput">
+  </div>
 <div class="container productList">
   <div class="row">
-    <div class="col-md-4 col-sm-4 col-lg-4" *ngFor="let product of products">
+    <div class="col-md-4 col-sm-4 col-lg-4" *ngFor="let product of products|search:'title':keyword">
       <div class="img-thumbnail">
         <img [src]="imgUrl" alt="商品图片">
-        <h4 class="float-right">￥{{product.price}}</h4>
-        <h4><a [routerLink]="['product',product.title]">{{product.title}}</a></h4>
+        <h4 class="pull-right">￥{{product.price}}</h4>
+        <h4><a [routerLink]="['product',product.id]">{{product.title}}</a></h4>
         <p>{{product.desc}}</p>
         <div>
           <app-stars [rating]="product.rating"></app-stars>

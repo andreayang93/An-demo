@@ -39,7 +39,7 @@ export class ItemListComponent implements OnInit {
   }
 
   public clearData() {
-    this.dataservice.deleteData().subscribe(
+    this.dataservice.deleteData(this.item).subscribe(
       (data) => this.showData()
     );
   }

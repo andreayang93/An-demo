@@ -15,7 +15,7 @@
                 <th scope="col">Product Inventory</th>
                 <th scope="col">Product Price</th>
                 <th scope="col">Product Category</th>
-                <th scope="col">Status</th>
+                <th scope="col">Details</th>
               </tr>
             </thead>
             <tbody *ngFor="let item of items | filter:term">
@@ -25,7 +25,7 @@
                 <td>{{item.inventory}}</td>
                 <td>{{item.price}}</td>
                 <td>{{item.category}}</td>
-                <div style="margin-top:9px"><button (click)= "clearData()" class="btn btn-sm">DELETE</button></div>
+                <div style="margin-top:9px"><button [routerLink]="['./',item.id]" class="btn btn-sm">CHECK</button></div>
               </tr>
             </tbody>
           </table>
@@ -33,7 +33,7 @@
     <div class="col-md-4">
       <h4>Add new items here</h4>
         <form>
-            <div class="form-group">
+            <div class="form-group" >
               <label for="formGroupNameInput">Product Name</label>
               <input type="text" class="form-control" id="formGroupnameInput" placeholder="name" name="name" [(ngModel)]="item.name">
             </div>
@@ -52,7 +52,7 @@
             <div class="form-group">
                 <label for="formGroupCategory">Product Category</label>
                 <select type="text" class="form-control" id="formGroupCategory" name="category" [(ngModel)]="item.category">
-                  <option>-choose-</option>
+                  <option selected>-choose-</option>
                   <option>china</option>
                   <option>painting</option>
                   <option>crafts</option>

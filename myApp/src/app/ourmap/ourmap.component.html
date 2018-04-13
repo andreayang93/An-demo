@@ -1,7 +1,14 @@
-<h4>
-  This is a world MAP!
-  Click <a [routerLink]="['./detail']">here</a> to check the details!
-</h4>
-<router-outlet></router-outlet>
+<!-- 子路由
+    <div class="mapStyle">
+    <h4>
+        This is a world MAP!
+        Click <a [routerLink]="['./detail']">here</a> to check the details!
+    </h4>
+</div>
+<router-outlet></router-outlet> -->
+
+<input type="text" [(ngModel)]='stock' placeholder="enter the fax you want">
+<input type="text" [(ngModel)]='amount' placeholder="entern the amount">
+<app-mapdetail [childStock]='stock' [childAmout]='amount'></app-mapdetail>
 
 

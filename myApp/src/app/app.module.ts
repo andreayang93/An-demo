@@ -24,6 +24,14 @@ import { TestListComponent } from './test-list/test-list.component';
 import { MapdetailComponent } from './mapdetail/mapdetail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChatComponent } from './chat/chat.component';
+import { SearchPipe } from './pipe/search.pipe';
+import { ItemDetailsComponent } from './item-details/item-details.component';
+import { LoginComponent } from './login/login.component';
+import { TemplateComponent } from './template/template.component';
+import { ValidatorDirective } from './directive/validator.directive';
+import { TestHttpComponent } from './test-http/test-http.component';
+import { WebsocketComponent } from './websocket/websocket.component';
+import {WebsocketService} from './shared/websocket.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +52,14 @@ import { ChatComponent } from './chat/chat.component';
     FilterPipe,
     TestListComponent,
     MapdetailComponent,
-    ChatComponent
+    ChatComponent,
+    SearchPipe,
+    ItemDetailsComponent,
+    LoginComponent,
+    TemplateComponent,
+    ValidatorDirective,
+    TestHttpComponent,
+    WebsocketComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +69,7 @@ import { ChatComponent } from './chat/chat.component';
     HttpClientModule,
     HttpModule
   ],
-  providers: [DataService],
+  providers: [DataService, WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

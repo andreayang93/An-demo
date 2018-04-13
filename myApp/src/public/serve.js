@@ -29,14 +29,6 @@ app.get('/item', function (req, res) {
     res.end();
   })
 
-  app.delete('/deleteitem', function (req, res) {
-    var data = require(path.join(__dirname, 'item.json'));
-    data.slice(indexof(req.body));
-    fs.writeFile(path.join(__dirname, 'item.json'), JSON.stringify(data), 'utf-8')
-    res.statusCode = 201;
-    res.end();
-  })
-
 
 
   var server = app.listen(8081, function () {
